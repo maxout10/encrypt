@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EncryptTop Messaging | IT Services</title>
+  <!-- Font Awesome for icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #f9fcff;
+      color: #1a2b3c;
+      line-height: 1.5;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navbar */
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 20, 40, 0.04);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e9f0f5;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+      color: #0b2b4a;
+    }
+
+    .logo i {
+      color: #1e7e9c;
+      font-size: 2rem;
+    }
+
+    .logo span {
+      color: #1e7e9c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e3a5f;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e7e9c;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #1e7e9c;
+      background: transparent;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1e7e9c;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #1e7e9c;
+      color: white;
+    }
+
+    /* hero */
+    .hero {
+      padding: 80px 0 70px;
+      background: linear-gradient(145deg, #ffffff 0%, #f2faff 100%);
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 480px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #d9effb;
+      color: #0a5773;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      color: #0b2b4a;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 i {
+      color: #1e7e9c;
+      font-style: normal;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #2a4a6a;
+      margin-bottom: 36px;
+      max-width: 550px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #1e7e9c;
+      color: white;
+      padding: 14px 34px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border: none;
+      box-shadow: 0 10px 18px -6px rgba(30, 126, 156, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #0f5b73;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 24px -8px rgba(30, 126, 156, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #1e3a5f;
+      padding: 14px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid #cbdae6;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary i {
+      font-size: 1.1rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: #1e7e9c;
+      background: #f0f8ff;
+    }
+
+    .hero-visual {
+      flex: 1 1 380px;
+      background: #ffffff;
+      border-radius: 36px;
+      box-shadow: 0 30px 50px -20px rgba(10, 60, 100, 0.25);
+      padding: 30px 30px 20px;
+      border: 1px solid #e2eef9;
+      transition: 0.2s;
+    }
+
+    .visual-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d0dfeb;
+    }
+
+    .dot.red { background: #ff8a8a; }
+    .dot.yellow { background: #ffd966; }
+    .dot.green { background: #9ae6b4; }
+
+    .encrypt-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1e7e9c;
+      background: #e1f2fa;
+      padding: 4px 10px;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+    }
+
+    .message-bubble {
+      background: #f4faff;
+      border-radius: 20px 20px 20px 6px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border-left: 4px solid #1e7e9c;
+    }
+
+    .message-bubble .msg-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #5a7b99;
+      margin-bottom: 6px;
+    }
+
+    .message-bubble .msg-text {
+      font-weight: 500;
+      color: #0b2b4a;
+      word-break: break-word;
+    }
+
+    .encrypted-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px dashed #b8d4e9;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: #1e5f7a;
+      margin-top: 6px;
+    }
+
+    .encrypted-line i {
+      color: #1e7e9c;
+    }
+
+    .lock-icon {
+      color: #0f5b73;
+      font-size: 1.2rem;
+    }
+
+    /* services section */
+    .services {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0b2b4a;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #3e5f7a;
+      max-width: 650px;
+      margin: 0 auto 60px;
+      font-size: 1.15rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #f9fcff;
+      border: 1px solid #e2eef9;
+      border-radius: 28px;
+      padding: 36px 28px;
+      transition: all 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #aac9e0;
+      box-shadow: 0 24px 36px -16px rgba(20, 90, 130, 0.15);
+      background: #ffffff;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      background: #e1f2fa;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .service-icon i {
+      font-size: 2rem;
+      color: #1e7e9c;
+    }
+
+    .service-card h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #0b2b4a;
+    }
+
+    .service-card p {
+      color: #3e5f7a;
+      font-size: 0.98rem;
+    }
+
+    /* trust / stat bar */
+    .trust-bar {
+      background: #0b2b4a;
+      color: white;
+      padding: 48px 0;
+      border-radius: 0;
+      margin: 20px 0 0;
+    }
+
+    .trust-bar .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #9ad2e9;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: #d2e5f0;
+    }
+
+    /* cta / contact */
+    .cta-section {
+      padding: 90px 0;
+      background: #f2faff;
+    }
+
+    .cta-card {
+      background: #ffffff;
+      border-radius: 48px;
+      padding: 60px 50px;
+      box-shadow: 0 30px 40px -24px rgba(10, 60, 100, 0.2);
+      border: 1px solid #d9e9f5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .cta-text h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #0b2b4a;
+      margin-bottom: 10px;
+    }
+
+    .cta-text p {
+      color: #2a4a6a;
+      font-size: 1.1rem;
+      max-width: 500px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .cta-actions .btn-primary {
+      padding: 16px 36px;
+    }
+
+    .cta-actions .btn-outline {
+      padding: 14px 28px;
+      background: #ffffff;
+    }
+
+    /* footer */
+    footer {
+      background: #ffffff;
+      padding: 40px 0;
+      border-top: 1px solid #e2eef9;
+      color: #3e5f7a;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-copy {
+      font-size: 0.95rem;
+    }
+
+    .footer-copy i {
+      color: #1e7e9c;
+      margin-right: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #1e3a5f;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #1e7e9c;
+    }
+
+    /* responsiveness */
+    @media (max-width: 800px) {
+      .navbar .container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero .container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .cta-text p {
+        margin: 0 auto;
+      }
+
+      .cta-actions {
+        justify-content: center;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .btn-primary, .btn-outline, .btn-secondary {
+        padding: 12px 22px;
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-shield-halved"></i>
+        <span>EncryptTop</span>Messaging
+      </div>
+      <div class="nav-links">
+        <a href="#">Services</a>
+        <a href="#">Solutions</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+        <a href="#" class="btn-outline">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-lock" style="margin-right: 6px;"></i> End-to-end encrypted IT
+        </div>
+        <h1>
+          Secure IT services with <i>encrypted</i> messaging
+        </h1>
+        <p>
+          Enterprise-grade infrastructure, proactive monitoring, and zero-trust communication. 
+          EncryptTop keeps your data and conversations protected — from day one.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary">
+            <i class="fas fa-headset" style="margin-right: 8px;"></i> Talk to an expert
+          </a>
+          <a href="#" class="btn-secondary">
+            <i class="fas fa-play-circle"></i> See how it works
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-header">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="encrypt-label">
+            <i class="fas fa-lock" style="font-size: 0.7rem;"></i> AES‑256
+          </div>
+        </div>
+        <div class="message-bubble">
+          <div class="msg-meta">
+            <span><i class="fas fa-user-circle"></i> Sarah (IT Admin)</span>
+            <span>10:42 AM</span>
+          </div>
+          <div class="msg-text">
+            Critical patch deployed to all servers. No downtime.
+          </div>
+        </div>
+        <div class="message-bubble">
+          <div class="msg-meta">
+            <span><i class="fas fa-user-circle"></i> Mike (SOC)</span>
+            <span>10:44 AM</span>
+          </div>
+          <div class="msg-text">
+            Nice. Encrypted channel verified — threat log clean.
+          </div>
+        </div>
+        <div class="encrypted-line">
+          <i class="fas fa-lock lock-icon"></i>
+          <span>End-to-end encrypted · zero access</span>
+          <i class="fas fa-check-circle" style="margin-left: auto; color: #1e7e9c;"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">IT services built for security</h2>
+      <p class="section-sub">
+        From managed infrastructure to encrypted communications — we keep your business running and protected.
+      </p>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Managed IT</h3>
+          <p>24/7 monitoring, patch management, and proactive support for your entire stack — without the overhead.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shield"></i></div>
+          <h3>Cybersecurity</h3>
+          <p>Threat detection, endpoint protection, and compliance audits with military-grade encryption.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-comment-dots"></i></div>
+          <h3>Encrypted Messaging</h3>
+          <p>Secure team communication with E2E encryption, data loss prevention, and audit trails.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-server"></i></div>
+          <h3>Cloud & Backup</h3>
+          <p>Resilient cloud infrastructure with encrypted backups and rapid disaster recovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / stats -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="stat-item">
+        <div class="stat-number">99.99%</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">256‑bit</div>
+        <div class="stat-label">AES encryption</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">SOC monitoring</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Businesses secured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / contact -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-text">
+          <h2>Ready to secure your IT?</h2>
+          <p>Get a free consultation and see how EncryptTop Messaging can protect your business communications.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary">Book a demo</a>
+          <a href="#" class="btn-outline">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-copy">
+        <i class="fas fa-shield-halved"></i> EncryptTop Messaging · IT Services
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+        <a href="#">Status</a>
+      </div>
+      <div class="footer-copy">
+        <i class="fas fa-lock"></i> © 2025 — All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
