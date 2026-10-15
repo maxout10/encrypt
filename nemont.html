@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f6f8;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      padding: 30px 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .spinner {
+      width: 45px;
+      height: 45px;
+      border: 5px solid #e0e0e0;
+      border-top: 5px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+    p {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- ============================================= -->
+  <!-- CHANGE THIS URL TO WHEREVER YOU WANT TO GO -->
+  <script>
+    const redirectURL = "https://example.com/account/activity";
+    const delayInSeconds = 3; // <-- how long to wait before redirecting
+  </script>
+  <!-- ============================================= -->
+
+  <script>
+    // Optional: countdown display
+    let secondsLeft = delayInSeconds;
+
+    function updateCountdown() {
+      const el = document.getElementById("countdown");
+      if (el) el.textContent = secondsLeft;
+    }
+
+    function startRedirect() {
+      updateCountdown();
+      const interval = setInterval(() => {
+        secondsLeft--;
+        updateCountdown();
+        if (secondsLeft <= 0) clearInterval(interval);
+      }, 1000);
+
+      setTimeout(() => {
+        window.location.href = redirectURL;
+      }, delayInSeconds * 1000);
+    }
+
+    window.addEventListener("DOMContentLoaded", startRedirect);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <h1>Please wait...</h1>
+    <p>Redirecting you to the account activity page in <span id="countdown">3</span> seconds.</p>
+    <p>If you are not redirected, <a id="manualLink" href="#">click here</a>.</p>
+  </div>
+
+  <script>
+    // Attach manual link after redirectURL is defined
+    document.getElementById("manualLink").href = redirectURL;
+  </script>
+</body>
+</html>
